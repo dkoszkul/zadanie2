@@ -40,7 +40,7 @@ class Set4LibInterfaces: public std::map<std::string,LibInterface*> {
    * \brief Szuka interfejsu biblioteki odpowiadającej danemu poleceniu
    */
   const LibInterface* FindLib4Cmd(const char*  sCmdName) const;
-  void DeleteLib(const char* sLibName);
+  void DeleteLib(const char* sLibName)
 };
 
 

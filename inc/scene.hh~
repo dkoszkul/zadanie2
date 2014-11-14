@@ -39,7 +39,7 @@ Scene(){
 numerPolecenia = 0;
 }
 bool AddLibSet(Set4LibInterfaces &LibsSet){_LibsSet=&LibsSet; return true;};
-bool findCommand(const char* name);
+Command *findCommand(const char* name);
 
 bool AddCommand(int key, Command *command);
 int getNumerPolecenia(){ return numerPolecenia;};

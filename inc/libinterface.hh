@@ -32,6 +32,8 @@ class LibInterface {
     bool Init4Lib(const char* sLibName);
     void Detach() { _pLibHandle = NULL; }
     const char*  GetCmdName() const { return _pFun_GetCmdName(); }
+    Command*  CreateCmd() const { return _pFun_pCreateCmd(); }
+    void  PrintSyntax() const { return _pFun_pPrintSyntax(); }
 
   private:
     void  *_pLibHandle; 

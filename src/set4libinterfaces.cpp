@@ -82,3 +82,8 @@ const LibInterface* Set4LibInterfaces::FindLib4Cmd(const char*  sCmdName) const
   return Iter->second;
 }
 
+void Set4LibInterfaces::DeleteLib(const char* sLibName){
+map<string,LibInterface*>::const_iterator  Iter = 
+                                       map<string,LibInterface*>::find(sLibName);
+	erase(Iter);
+}

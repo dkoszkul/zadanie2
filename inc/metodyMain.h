@@ -1,0 +1,28 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+#include "libinterface.hh"
+#include "set4libinterfaces.hh"
+
+#include "lacze_do_gnuplota.hh"
+#include "Wektor2D.hh"
+
+#include "scene.hh"
+#include "xmlparser4scene.hh"
+
+#include <xercesc/sax2/SAX2XMLReader.hpp>
+#include <xercesc/sax2/XMLReaderFactory.hpp>
+#include <xercesc/sax2/DefaultHandler.hpp>
+#include <xercesc/util/XMLString.hpp>
+
+using namespace std;
+using namespace xercesc;
+
+void listing(Set4LibInterfaces  &LibsSet);
+
+void displayMenu(void);
+void displayMenu_CaseI(Set4LibInterfaces  &LibsSet);
+void displayMenu_CaseD(Set4LibInterfaces  &LibsSet);
+void displayMenu_CaseU(Set4LibInterfaces  &LibsSet);
+void displayMenu_CaseW(Scene  &Scn);

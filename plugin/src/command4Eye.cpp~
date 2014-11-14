@@ -11,6 +11,11 @@ extern "C" {
   Command* CreateCmd(void);
 }
 
+bool ReadParameters(std::istream& Strm_CmdsList)
+{
+  return Command4Eye::ReadParameters(Strm_CmdsList);
+}
+
 const char* GetCmdName(void)
 {
   return Command4Eye::GetCmdName();

@@ -10,8 +10,28 @@ using namespace std;
 Set4LibInterfaces::~Set4LibInterfaces()
 {
   /*
-   *  Tutaj trzeba wpisac odpowiedni kod
+   * Tutaj interujemy zawartosc dziedziczonego kontenera map<>
    */
+  for (pair<string,LibInterface*> Element : *this ) {
+    /*
+     * W petli otrzymujemy kolejne elementy kontenera map<string,LibInterface*>.
+     * Sa nimi obiekty instancji szablonu pair<string,LibInterface*>.
+     * Szablon ten ma dwa pola: first i second. Sa one typow, ktore sa
+     * wymienione sa dokladnie w tej samej kolejnosci w liscie parametrow
+     * tego szablonu.
+     */
+     
+    /*
+     * To jest tylko po to, aby pokazac jak sie dostac do pola klasy
+     * obiektu instacji szablonu pair<string,LibInterface*>.
+     */
+    cout << "Chce usunac: " << Element.first << endl;
+
+    /*
+     *  Tutaj trzeba wpisac odpowiedni kod aby usunc 
+     *  zmienne dynamiczna zawiazana z interfejsem biblioteki.
+     */
+  }
 }
 
 
@@ -33,8 +53,8 @@ bool Set4LibInterfaces::AddLib(const char*  sLibName)
 
   if (!pInterf4Copy->Init4Lib(sLibName)) { delete pInterf4Copy;  return false; }
 
-  //insert(pair<string,LibInterface*>
-//			(pInterf4Copy->GetCmdName(),pInterf4Copy));
+  insert(pair<string,LibInterface*>
+			(pInterf4Copy->GetCmdName(),pInterf4Copy));
 
   return true;
 }
@@ -51,14 +71,17 @@ bool Set4LibInterfaces::AddLib(const char*  sLibName)
  * \return Jeśli obiekt reprezentujący interfejs biblioteki 
  *         danego polecenia zostanie znaleziony, to zwracany
  *         jest jego adres. W przypadku przeciwnym zwracany
- *         jest adres \p NULL.
+ *         jest adres \p nullptr.
  */
 const LibInterface* Set4LibInterfaces::FindLib4Cmd(const char*  sCmdName) const
 {
   map<string,LibInterface*>::const_iterator  Iter = 
                                        map<string,LibInterface*>::find(sCmdName);
 
-  if (Iter == end()) return NULL;
+  if (Iter == end()) return nullptr;
   return Iter->second;
 }
 
+void Set4LibInterfaces::DeleteLib(const char* sLibName){
+	erase(find(sLibName));
+}
