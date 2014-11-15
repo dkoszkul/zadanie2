@@ -49,18 +49,18 @@ void Command4Mouth::PrintCmd() const
 
 int Command4Mouth::ExecCmd(RobotFace &RobPose) const
 {
-std::cerr<<"Jestem w buzi"<<std::endl;
-  /*RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
-  RobPose.Usta_zapisz(getSzybkoscZmiany());*/
+  RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
+  RobPose.Usta_zapisz(getSzybkoscZmiany());
 
   return 0;
 }
 
 bool Command4Mouth::ReadParams(std::istream& Strm_CmdsList)
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  Strm_CmdsList>> polozenieDolnejWargi;
+  Strm_CmdsList>> polozenieGornejWargi;
+  Strm_CmdsList>> odchylenieKacikowUst;
+  Strm_CmdsList>> szybkoscZmiany;
   return true;
 }
 

@@ -57,9 +57,10 @@ int Command4Mouth::ExecCmd(RobotFace &RobPose) const
 
 bool Command4Mouth::ReadParams(std::istream& Strm_CmdsList)
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  Strm_CmdsList>> polozenieDolnejWargi;
+  Strm_CmdsList>> polozenieGornejWargi;
+  Strm_CmdsList>> oddalenieKacikowUst;
+  Strm_CmdsList>> szybkoscZmiany;
   return true;
 }
 
