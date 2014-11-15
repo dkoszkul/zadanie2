@@ -130,7 +130,9 @@ void displayMenu_CaseU(Set4LibInterfaces  &LibsSet){
 }
 
 void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
+
 	string nazwaPlikuXML;
+	robotFace.getLacze().UsunWszystkieNazwyPlikow();
 
 	cout<<"Podaj nazwe pliku XML: ";
 	cin>>nazwaPlikuXML;
@@ -151,6 +153,8 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
   		}
 
 			robotFace.getLacze().DodajNazwePliku("dat/Usta.dat", PzG::RR_Ciagly, 6);
+robotFace.getLacze().DodajNazwePliku("dat/Oko0.dat", PzG::RR_Ciagly, 6);
+robotFace.getLacze().DodajNazwePliku("dat/Oko1.dat", PzG::RR_Ciagly, 6);
 		robotFace.getLacze().Rysuj();
 
 	}

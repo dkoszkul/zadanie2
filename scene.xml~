@@ -4,6 +4,7 @@
   <Parameter Name="id" Value="1"/>
   <Parameter Name="polozenie_dolnej_powieki" Value="5"/>
   <Parameter Name="polozenie_gornej_powieki" Value="0"/>
+  <Parameter Name="szybkosc_zmian" Value="300"/>
  </Object>
  <Object Name="Oko">
   <Parameter Name="id" Value="2"/>
@@ -12,9 +13,9 @@
   <Parameter Name="szybkosc_zmian" Value="300"/>
  </Object>
  <Object Name="Usta">
-  <Parameter Name="polozenie_dolnej_wargi" Value="10"/>
-  <Parameter Name="polozenie_gornej_wargi" Value="5"/>
-  <Parameter Name="odchylenie_kacikow_ust" Value="0"/>
+  <Parameter Name="polozenie_dolnej_wargi" Value="-60"/>
+  <Parameter Name="polozenie_gornej_wargi" Value="-40"/>
+  <Parameter Name="odchylenie_kacikow_ust" Value="30"/>
   <Parameter Name="szybkosc_zmian" Value="300"/>	 
  </Object>
 
