@@ -11,6 +11,8 @@
 #include "command.h"
 #include "robotfaceInterface.h"
 
+#include <string>
+
 class Command4Mouth: public Command {
 	
 private:
@@ -37,6 +39,7 @@ private:
 	void setPolozenieGornejWargi(double polozenieGornejWargi);
 	int getSzybkoscZmiany() const;
 	void setSzybkoscZmiany(int szybkoscZmiany);
+	virtual std::string getFilename();
 
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////

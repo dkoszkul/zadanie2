@@ -146,13 +146,11 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 		robotFace.getLacze().ZmienTrybRys(PzG::TR_2D);
 		robotFace.getLacze().UstawZakresY(-100, 100);
 		robotFace.getLacze().UstawZakresX(-100, 100);
-
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
-	
+			string filename = "dat/"+x.second->getFilename();
+			robotFace.getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
   		}
-
-			robotFace.getLacze().DodajNazwePliku("dat/Usta.dat", PzG::RR_Ciagly, 6);
 		robotFace.getLacze().Rysuj();
 
 	}

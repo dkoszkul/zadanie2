@@ -63,6 +63,12 @@ bool Command4Eye::ReadParams(std::istream& Strm_CmdsList)
 	Strm_CmdsList>>polozenieGornejPowieki;
 	Strm_CmdsList>>szybkoscZmiany;
 
+
+std::cout<<idOka<<"!!!"<<std::endl;
+	filename = "Oko";
+	filename+=to_string(idOka);
+	filename+=".dat";
+
   return true;
 }
 /*!
@@ -116,6 +122,10 @@ int Command4Eye::getSzybkoscZmiany() const {
 
 void Command4Eye::setSzybkoscZmiany(double szybkoscZmiany) {
 	this->szybkoscZmiany = szybkoscZmiany;
+}
+
+std::string Command4Eye::getFilename(){
+	return filename;
 }
 ///////////////////
 ///////////////////

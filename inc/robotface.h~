@@ -18,7 +18,7 @@
 
 using namespace std;
 
-class RobotFace{
+class RobotFace : public RobotFaceInterface{
 
 private:
 	PzG::LaczeDoGNUPlota Lacze;
@@ -32,6 +32,9 @@ std::vector<Wektor2D> GornaPowieka;
 std::vector<Wektor2D> DolnaPowieka;
 
 public:
+
+	RobotFace(){Lacze.UstawZakresX(-100, 100);Lacze.UstawZakresY(-100, 100);}
+
 	PzG::LaczeDoGNUPlota getLacze();
 	
 
@@ -41,11 +44,12 @@ public:
 		double polozenieDolnejWargi,
 		double polozenieDolnejPowieki,
 		double polozenieGornejPowieki); 
+	const char* Usta_getFilename();
 
 ////////////OKO///////////////////
 	bool Oko_zapisz(int idOka,int szybkoscZmian);
 	void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki); 
-
+	const char* Oko_getFilename();
 ////////////BREW//////////////////
 //	void zapiszBrew();
 //	void Brew_zbudujPolecenieDlaGnuplota(); 

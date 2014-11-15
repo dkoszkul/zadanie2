@@ -61,6 +61,7 @@ bool Command4Mouth::ReadParams(std::istream& Strm_CmdsList)
   Strm_CmdsList>> polozenieGornejWargi;
   Strm_CmdsList>> oddalenieKacikowUst;
   Strm_CmdsList>> szybkoscZmiany;
+
   return true;
 }
 
@@ -111,5 +112,9 @@ int Command4Mouth::getSzybkoscZmiany() const {
 
 void Command4Mouth::setSzybkoscZmiany(int szybkoscZmiany) {
 	this->szybkoscZmiany = szybkoscZmiany;
+}
+
+std::string Command4Mouth::getFilename(){
+	return "Usta.dat";
 }
 

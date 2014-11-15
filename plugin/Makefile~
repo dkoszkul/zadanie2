@@ -5,7 +5,7 @@ __start__: obj ../libs/libPolecenie_Oko.so ../libs/libPolecenie_Usta.so
 obj:
 	mkdir obj
 
-CPPFLAGS=-Wall -fPIC -pedantic -Iinc -I../inc -std=c++11
+CPPFLAGS=-Wall -fPIC -pedantic -Iinc -I../inc
 LDFLAGS=-Wall -shared
 
 

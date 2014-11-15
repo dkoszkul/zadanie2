@@ -31,6 +31,7 @@ XMLParser4Scene::XMLParser4Scene(Scene &Scn)
 void XMLParser4Scene::startDocument()
 {
   cout << "*** Rozpoczecie przetwarzania dokumentu XML." << endl;
+  cout<<"Przetwarzam: ";
 }
 
 
@@ -155,7 +156,9 @@ void XMLParser4Scene::WhenEndElement(const std::string& ElemName)
 	if(ElemName == "Object"){
 std::istringstream ss(_pScn->Strm_CmdsList);
 _pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->ReadParams(ss);
+std::cerr<<"Polecenie: "<<_pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->getFilename();
 		_pScn->setNumerPolecenia(_pScn->getNumerPolecenia()+1);
+
 	}
 }
 

@@ -41,11 +41,12 @@ public:
 		double polozenieDolnejWargi,
 		double polozenieDolnejPowieki,
 		double polozenieGornejPowieki); 
+	const char* Usta_getFilename();
 
 ////////////OKO///////////////////
 	bool Oko_zapisz(int idOka,int szybkoscZmian);
 	void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki); 
-
+	const char* Oko_getFilename();
 ////////////BREW//////////////////
 //	void zapiszBrew();
 //	void Brew_zbudujPolecenieDlaGnuplota(); 

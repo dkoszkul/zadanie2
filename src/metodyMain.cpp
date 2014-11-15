@@ -149,12 +149,9 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
-	
+			string filename = "dat/"+x.second->getFilename();
+			robotFace.getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
   		}
-
-			robotFace.getLacze().DodajNazwePliku("dat/Usta.dat", PzG::RR_Ciagly, 6);
-robotFace.getLacze().DodajNazwePliku("dat/Oko0.dat", PzG::RR_Ciagly, 6);
-robotFace.getLacze().DodajNazwePliku("dat/Oko1.dat", PzG::RR_Ciagly, 6);
 		robotFace.getLacze().Rysuj();
 
 	}

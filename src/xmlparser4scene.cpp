@@ -157,6 +157,7 @@ void XMLParser4Scene::WhenEndElement(const std::string& ElemName)
 std::istringstream ss(_pScn->Strm_CmdsList);
 _pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->ReadParams(ss);
 		_pScn->setNumerPolecenia(_pScn->getNumerPolecenia()+1);
+
 	}
 }
 

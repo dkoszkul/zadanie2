@@ -9,6 +9,8 @@
 #include "command.h"
 #include "robotfaceInterface.h"
 
+#include <string>
+
 class Command4Eye: public Command {
 	
 private:
@@ -16,6 +18,8 @@ private:
 	double polozenieDolnejPowieki;
 	double polozenieGornejPowieki;
 	int szybkoscZmiany;
+	
+	std::string filename;
 
  public:
   Command4Eye();  
@@ -35,6 +39,7 @@ private:
 	void setPolozenieGornejPowieki(double polozenieGornejPowieki);
 	int getSzybkoscZmiany() const;
 	void setSzybkoscZmiany(double szybkoscZmiany);
+	virtual std::string getFilename();
 
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
