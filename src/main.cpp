@@ -22,6 +22,8 @@ displayMenu_CaseW(Scn,robotFace);
 
 cout << "Aby zakonczyc nacisnij ENTER ..." << flush;
 	cin >> noskipws >> Opcja;
+
+
 	cin >> noskipws >> Opcja;
 
 
