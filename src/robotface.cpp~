@@ -8,11 +8,7 @@ PzG::LaczeDoGNUPlota RobotFace:: getLacze(){
 /////////////////USTA//////////////////////
 
 void RobotFace::Usta_zbudujPolecenieDlaGnuplota(double polozenieDolnejWargi,double polozenieGornejWargi,double oddalenieKacikowUst){
-	
-	if(!GornaWarga.empty()){
-		poprzedniaGornaWarga = GornaWarga;
-		poprzedniaDolnaWarga = DolnaWarga;
-	}
+
 
 	GornaWarga = { {-NEUTRALNE_POLOZENIE_KACIKOW_UST-oddalenieKacikowUst,0}
 		, {	0,polozenieGornejWargi}, {NEUTRALNE_POLOZENIE_KACIKOW_UST+oddalenieKacikowUst,0}};
@@ -48,21 +44,18 @@ bool RobotFace::Usta_zapisz(int szybkoscZmian){
 
 //////////////////////////OKO///////////////////////////
 
-void RobotFace::Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki){
-	
-		if(!GornaPowieka.empty()){
-		poprzedniaGornaPowieka = GornaPowieka;
-		poprzedniaDolnaPowieka = DolnaPowieka;
-	}
+void RobotFace::Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki,int idOka){
 
-
-
-	GornaPowieka = { {-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}
+if(!DolnaPowieka##idOka.empty()){
+_PpolozenieDolnejPowieki##idOka = DolnaPowieka[1].y;
+_PpolozenieGornejPowieki##idOka = GornaPowieka[1].y;
+}
+	GornaPowieka##idOka = { {-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK+7,polozenieGornejPowieki}
 		, {	NEUTRALNE_POLOZENIE_KACIKOW_POWIEK-7,polozenieGornejPowieki}
 		, {	NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}};
 
-	DolnaPowieka = { {NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}
+	DolnaPowieka##idOka = { {NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}
 		, {	NEUTRALNE_POLOZENIE_KACIKOW_POWIEK-7,polozenieDolnejPowieki}
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK+7,polozenieDolnejPowieki}
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}};
@@ -80,7 +73,7 @@ bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
 		return false;
 
 	Wektor2D GP;
-	for (auto Iter = GornaPowieka.begin(); Iter != GornaPowieka.end(); ++Iter) {
+	for (auto Iter = GornaPowieka##idOka.begin(); Iter != GornaPowieka##idOka.end(); ++Iter) {
 		GP = *Iter;
 		GP.y += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK + translacja_Y;
 		GP.x += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK
@@ -88,7 +81,7 @@ bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
 		StrmWy << GP << std::endl;
 	}
 	Wektor2D DP;
-	for (auto Iter = DolnaPowieka.begin(); Iter != DolnaPowieka.end(); ++Iter) {
+	for (auto Iter = DolnaPowieka##idOka.begin(); Iter != DolnaPowieka##idOka.end(); ++Iter) {
 		DP = *Iter;
 		DP.y += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK + translacja_Y;
 		DP.x += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK
@@ -97,4 +90,48 @@ bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
 	}
 	return !StrmWy.fail();
 
+}
+
+
+
+
+void RobotFace::Oko_simulateMovement(double polozenieDolnejPowieki,double polozenieGornejPowieki
+					,int szybkoscZmiany,int idOka,std::string filename){
+
+
+/*!
+ * mikroruch dla gornej powieki
+ */
+
+std::cout<<"poprzedniePGP: "<<this->_PpolozenieGornejPowieki<<" aktualne: "<<polozenieGornejPowieki<<std::endl;
+double roznicaGornejPowieki = (polozenieGornejPowieki - this->_PpolozenieGornejPowieki) / (szybkoscZmiany+1);
+
+/*!
+ * mikroruch dla dolnej powieki
+ */
+double roznicaDolnejPowieki = (polozenieDolnejPowieki - this->_PpolozenieDolnejPowieki) / (szybkoscZmiany+1);
+	
+int iloscRuchow = abs((int)(polozenieGornejPowieki - this->_PpolozenieGornejPowieki)) /abs(roznicaGornejPowieki);
+std::cout<<"Jestem w symulacji!sss"<<roznicaGornejPowieki<<" "<<roznicaDolnejPowieki <<" "<<iloscRuchow<<std::endl;
+double aktualnePolozenieGornejPowieki = this->_PpolozenieGornejPowieki;
+double aktualnePolozenieDolnejPowieki = this->_PpolozenieDolnejPowieki;
+std::cout<<filename.c_str()<<std::endl;
+for(int i=0;i<iloscRuchow;i++){
+	aktualnePolozenieGornejPowieki+=roznicaGornejPowieki;
+	aktualnePolozenieDolnejPowieki+=roznicaDolnejPowieki;
+
+	Oko_zbudujPolecenieDlaGnuplota(aktualnePolozenieDolnejPowieki,aktualnePolozenieGornejPowieki); 
+
+	Oko_zapisz(idOka,0);
+	//getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
+	//getLacze().Rysuj();
+	 usleep(10 * 1000);
+}
+}
+
+/*void RobotFace::Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,double oddalenieKacikowUst,
+			double _PpolozenieDolnejWargi,double _PpolozenieGornejWargi,double _PoddalenieKacikowUst,int szybkoscZmiany){
+}*/
+
+void RobotFace::Brew_simulateMovement(int nrPolecenia,string nazwaPliku){
 }

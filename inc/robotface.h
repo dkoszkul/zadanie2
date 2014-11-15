@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <unistd.h>
+#include <cmath>
 #include "lacze_do_gnuplota.hh"
 #include "Wektor2D.hh"
 
@@ -32,11 +33,15 @@ std::vector<Wektor2D> GornaWarga;
 std::vector<Wektor2D> DolnaWarga;
 
 ////////////OKO///////////////////
-std::vector<Wektor2D> poprzedniaGornaPowieka;
-std::vector<Wektor2D> poprzedniaDolnaPowieka;
+double _PpolozenieDolnejPowieki0;
+double _PpolozenieGornejPowieki0;
+double _PpolozenieDolnejPowieki1;
+double _PpolozenieGornejPowieki1;
 
-std::vector<Wektor2D> GornaPowieka;
-std::vector<Wektor2D> DolnaPowieka;
+std::vector<Wektor2D> GornaPowieka0;
+std::vector<Wektor2D> DolnaPowieka0;
+std::vector<Wektor2D> GornaPowieka1;
+std::vector<Wektor2D> DolnaPowieka1;
 
 public:
 	PzG::LaczeDoGNUPlota getLacze();
@@ -45,29 +50,33 @@ public:
 	bool Usta_zapisz(int szybkoscZmian);
 	void Usta_zbudujPolecenieDlaGnuplota(
 		double polozenieDolnejWargi,
-		double polozenieDolnejPowieki,
-		double polozenieGornejPowieki); 
+		double polozenieGornejWargi,
+		double oddalenieKacikowUst); 
 	const char* Usta_getFilename();
-	void Usta_zmienPozycje();
+	/*void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
+		double oddalenieKacikowUst,double _PoddalenieKacikowUst,int szybkoscZmiany);*/
 
 	std::vector<Wektor2D> getGornaWarga(){return GornaWarga;};
 	std::vector<Wektor2D> getDolnaWarga(){return DolnaWarga;};
-	std::vector<Wektor2D> getPoprzedniaGornaWarga(){return poprzedniaGornaWarga;};
-	std::vector<Wektor2D> getPoprzedniaDolnaWarga(){return poprzedniaDolnaWarga;};
+
 
 ////////////OKO///////////////////
 	bool Oko_zapisz(int idOka,int szybkoscZmian);
 	void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki); 
 	const char* Oko_getFilename();
-	void Oko_zmienPozycje();
+	void Oko_simulateMovement(double polozenieDolnejPowieki,double polozenieGornejPowieki,
+			int szybkoscZmiany,int idOka,std::string filename);		
 
-	std::vector<Wektor2D> getGornaPowieka(){return GornaPowieka;};
-	std::vector<Wektor2D> getDolnaPowieka(){return DolnaPowieka;};
-	std::vector<Wektor2D> getPoprzedniaGornaPowieka(){return poprzedniaGornaPowieka;};
-	std::vector<Wektor2D> getPoprzedniaDolnaPowieka(){return poprzedniaDolnaPowieka;};
+	std::vector<Wektor2D> getGornaPowieka(){return GornaPowieka0;};
+	std::vector<Wektor2D> getDolnaPowieka(){return DolnaPowieka0;};
 ////////////BREW//////////////////
 //	void zapiszBrew();
 //	void Brew_zbudujPolecenieDlaGnuplota(); 
+	void Brew_simulateMovement(int nrPolecenia,string nazwaPliku);
+
+
+
+
 
 };
 

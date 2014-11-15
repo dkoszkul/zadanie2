@@ -31,16 +31,3 @@ if (aktualnaMapa.count(nazwaPliku) != 0) {
 std::cerr<<"Aktualna mapa posiada: "<<aktualnaMapa.size()<<" elementow."<<std::endl;
 }
 
-void Scene::Oko_simulateMovement(std::vector<Wektor2D> GornaPowieka,std::vector<Wektor2D> DolnaPowieka,
-				std::vector<Wektor2D> poprzedniaGornaPowieka,std::vector<Wektor2D> poprzedniaDolnaPowieka,int szybkoscZmiany){
-
-
-}
-
-void Scene::Usta_simulateMovement(std::vector<Wektor2D> GornaWarga,std::vector<Wektor2D> DolnaWarga,
-				std::vector<Wektor2D> poprzedniaGornaWarga,std::vector<Wektor2D> poprzedniaDolnaWarga,int szybkoscZmiany){
-}
-
-void Scene::Brew_simulateMovement(int nrPolecenia,string nazwaPliku){
-}
-

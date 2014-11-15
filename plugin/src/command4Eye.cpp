@@ -47,8 +47,11 @@ void Command4Eye::PrintCmd() const
  */
 int Command4Eye::ExecCmd(RobotFace &RobPose) const
 {
-  RobPose.Oko_zbudujPolecenieDlaGnuplota(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki());
-  RobPose.Oko_zapisz(getIdOka(),getSzybkoscZmiany());
+string filenameT = "dat/"+filename;
+	RobPose.Oko_simulateMovement(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki(),getSzybkoscZmiany(),getIdOka(),filenameT);	
+
+ // RobPose.Oko_zbudujPolecenieDlaGnuplota(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki());
+  //RobPose.Oko_zapisz(getIdOka(),getSzybkoscZmiany());
   return 0;
 }
 

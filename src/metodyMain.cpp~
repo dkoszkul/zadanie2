@@ -153,17 +153,15 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
     			x.second->ExecCmd(robotFace);
 			string filename = "dat/"+x.second->getFilename();
 			
-			std::string nazwa = _mapaPolecen[x.first]->getCommandName();
+			std::string nazwa = Scn._mapaPolecen[x.first]->getCommandName();
 			if(nazwa == "Oko"){
-				Scn.Oko_simulateMovement(robotFace.getGornaPowieka(),robotFace.getDolnaPowieka(),
-					robotFace.getPoprzedniaGornaPowieka(),robotFace.getPoprzedniaDolnaPowieka(),_mapaPolecen[x.first]->getSzybkoscZmiany());
+				robotFace.Oko_simulateMovement();
 			}
 			else if(nazwa == "Usta"){
-				Scn.Usta_simulateMovement(robotFace.getGornaWarga(),robotFace.getDolnaWarga(),
-					robotFace.getPoprzedniaGornaWarga(),robotFace.getPoprzedniaDolnaWarga(),_mapaPolecen[x.first]->getSzybkoscZmiany());
+				robotFace.Usta_simulateMovement();
 			}
 			else if(nazwa == "Brew"){
-				Scn.Brew_simulateMovement(1,nazwa);
+				robotFace.Brew_simulateMovement(1,nazwa);
 			}
 			else{
 				std::cerr<<"Polecenie "<<nazwa<<" nie jest obslugiwane w symulacji ruchu"<<std::endl;

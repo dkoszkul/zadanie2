@@ -47,8 +47,12 @@ void Command4Eye::PrintCmd() const
  */
 int Command4Eye::ExecCmd(RobotFace &RobPose) const
 {
-  RobPose.Oko_zbudujPolecenieDlaGnuplota(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki());
-  RobPose.Oko_zapisz(getIdOka(),getSzybkoscZmiany());
+string filenameT = "dat/"+filename;
+	RobPose.Oko_simulateMovement(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki(),
+			RobPose.getSavePolozenieDolnejPowieki(),RobPose.getSavePolozenieGornejPowieki(),getSzybkoscZmiany(),getIdOka(),filenameT);	
+
+ // RobPose.Oko_zbudujPolecenieDlaGnuplota(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki());
+  //RobPose.Oko_zapisz(getIdOka(),getSzybkoscZmiany());
   return 0;
 }
 
@@ -63,8 +67,6 @@ bool Command4Eye::ReadParams(std::istream& Strm_CmdsList)
 	Strm_CmdsList>>polozenieGornejPowieki;
 	Strm_CmdsList>>szybkoscZmiany;
 
-
-std::cout<<idOka<<"!!!"<<std::endl;
 	filename = "Oko";
 	filename+=to_string(idOka);
 	filename+=".dat";

@@ -57,9 +57,7 @@ public:
 	void addParameterToString(string parameterName){Strm_CmdsList+=parameterName;Strm_CmdsList+=" ";};
 	void showStringParameters(){std::cout<< Strm_CmdsList<<std::endl;};
 
-	void Oko_simulateMovement(std::vector<Wektor2D>,std::vector<Wektor2D>,std::vector<Wektor2D>,std::vector<Wektor2D>,int);
-	void Usta_simulateMovement(std::vector<Wektor2D>,std::vector<Wektor2D>,std::vector<Wektor2D>,std::vector<Wektor2D>,int);
-	void Brew_simulateMovement(int nrPolecenia,string nazwaPliku);
+
 };
 
 
