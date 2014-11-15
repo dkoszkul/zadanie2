@@ -1,0 +1,21 @@
+#ifndef  ROBOTFACEINTERFACE_H
+#define  ROBOTFACEINTERFACE_H
+
+class RobotFaceInterface{
+
+public:
+RobotFaceInterface(){};
+virtual ~RobotFaceInterface(){};
+
+virtual void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki); 
+virtual bool Oko_zapisz(int idOka,int szybkoscZmian);
+
+virtual bool Usta_zapisz(int szybkoscZmian);
+virtual void Usta_zbudujPolecenieDlaGnuplota(
+		double polozenieDolnejWargi,
+		double polozenieDolnejPowieki,
+		double polozenieGornejPowieki); 
+
+};
+
+#endif

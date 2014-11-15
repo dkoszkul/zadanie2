@@ -35,9 +35,9 @@ private:
 	
 
 public:
-map<int,Command*> _mapaPolecen;
+	map<int,Command*> _mapaPolecen;
 	std::string Strm_CmdsList;
-Set4LibInterfaces *_LibsSet;
+	Set4LibInterfaces *_LibsSet;
 
 Scene(){
 numerPolecenia = 0;

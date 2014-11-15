@@ -9,6 +9,8 @@
 #include "Wektor2D.hh"
 
 #include "scene.hh"
+#include "robotface.h"
+
 #include "xmlparser4scene.hh"
 
 #include <xercesc/sax2/SAX2XMLReader.hpp>
@@ -25,4 +27,4 @@ void displayMenu(void);
 void displayMenu_CaseI(Set4LibInterfaces  &LibsSet);
 void displayMenu_CaseD(Set4LibInterfaces  &LibsSet);
 void displayMenu_CaseU(Set4LibInterfaces  &LibsSet);
-void displayMenu_CaseW(Scene  &Scn,Set4LibInterfaces  &LibsSet);
+void displayMenu_CaseW(Scene  &Scn);

@@ -129,7 +129,7 @@ void displayMenu_CaseU(Set4LibInterfaces  &LibsSet){
 	}
 }
 
-void displayMenu_CaseW(Scene  &Scn){
+void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 	string nazwaPlikuXML;
 
 	cout<<"Podaj nazwe pliku XML: ";
@@ -138,7 +138,21 @@ void displayMenu_CaseW(Scene  &Scn){
 	 if (!ReadFile(nazwaPlikuXML.c_str(),Scn)){
 		cerr<<"Wczytanie nie powiodlo sie! "<<endl;
 	}else{
+		cout << STR(Ilosc polecen do wykonania: ) << Scn.get_mapaPolecen().size() << endl;
 		
+		robotFace.getLacze().Inicjalizuj();  // Tutaj startuje gnuplot.
+		robotFace.getLacze().ZmienTrybRys(PzG::TR_2D);
+		robotFace.getLacze().UstawZakresY(-100, 100);
+		robotFace.getLacze().UstawZakresX(-100, 100);
+
+		for (auto& x: Scn.get_mapaPolecen()) {
+    			x.second->ExecCmd(robotFace);
+		Lacze.DodajNazwePliku(nazwaPliku.c_str(), PzG::RR_Ciagly, 6);
+		robotFace.getLacze().Rysuj();
+  		}
+
+		
+
 	}
 	
 

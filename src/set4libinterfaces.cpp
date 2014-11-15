@@ -9,28 +9,8 @@ using namespace std;
  */
 Set4LibInterfaces::~Set4LibInterfaces()
 {
-  /*
-   * Tutaj interujemy zawartosc dziedziczonego kontenera map<>
-   */
   for (pair<string,LibInterface*> Element : *this ) {
-    /*
-     * W petli otrzymujemy kolejne elementy kontenera map<string,LibInterface*>.
-     * Sa nimi obiekty instancji szablonu pair<string,LibInterface*>.
-     * Szablon ten ma dwa pola: first i second. Sa one typow, ktore sa
-     * wymienione sa dokladnie w tej samej kolejnosci w liscie parametrow
-     * tego szablonu.
-     */
-     
-    /*
-     * To jest tylko po to, aby pokazac jak sie dostac do pola klasy
-     * obiektu instacji szablonu pair<string,LibInterface*>.
-     */
-    cout << "Chce usunac: " << Element.first << endl;
-
-    /*
-     *  Tutaj trzeba wpisac odpowiedni kod aby usunc 
-     *  zmienne dynamiczna zawiazana z interfejsem biblioteki.
-     */
+	Element.second->Detach();
   }
 }
 

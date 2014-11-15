@@ -22,11 +22,11 @@ LDFLAGS=-Wall -shared
 	@echo
 
 obj/command4Eye.o: src/command4Eye.cpp ../inc/command.h\
-                        inc/command4Eye.h 
+                        inc/command4Eye.h ../inc/robotfaceInterface.h
 	g++ -c ${CPPFLAGS} -o obj/command4Eye.o src/command4Eye.cpp
 
 obj/command4Mouth.o: src/command4Mouth.cpp ../inc/command.h\
-                        inc/command4Mouth.h 
+                        inc/command4Mouth.h ../inc/robotfaceInterface.h
 	g++ -c ${CPPFLAGS} -o obj/command4Mouth.o src/command4Mouth.cpp
 
 clean:

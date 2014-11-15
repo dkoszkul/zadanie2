@@ -9,6 +9,7 @@
 #endif
 
 #include "command.h"
+#include "robotfaceInterface.h"
 
 class Command4Mouth: public Command {
 	

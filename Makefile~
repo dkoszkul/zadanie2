@@ -1,8 +1,11 @@
-__start__: obj interp4face
-	./interp4face
+__start__: obj __plugin__ interp4face
+	 ./interp4face
 
 obj:
 	mkdir obj
+
+__plugin__:
+	cd plugin; make
 
 CPPFLAGS=-Wall -g -std=c++11 -pedantic -Iinc
 LDFLAGS=-Wall
@@ -33,14 +36,15 @@ obj/xmlparser4scene.o: src/xmlparser4scene.cpp inc/xmlparser4scene.hh
 	g++ -c ${CPPFLAGS} -o obj/xmlparser4scene.o src/xmlparser4scene.cpp
 
 obj/metodyMain.o: src/metodyMain.cpp inc/metodyMain.h inc/libinterface.hh inc/set4libinterfaces.hh\
-	    inc/lacze_do_gnuplota.hh inc/Wektor2D.hh inc/scene.hh
+	    inc/lacze_do_gnuplota.hh inc/Wektor2D.hh inc/scene.hh inc/robotface.h
 	g++ -c ${CPPFLAGS} -o obj/metodyMain.o src/metodyMain.cpp
 
 obj/scene.o: src/scene.cpp inc/scene.hh inc/command.h inc/libinterface.hh\
 	    inc/set4libinterfaces.hh
 	g++ ${CPPFLAGS} -c -o obj/scene.o src/scene.cpp
 
-obj/robotface.o: src/robotface.cpp inc/robotface.h inc/command.h inc/lacze_do_gnuplota.hh
+obj/robotface.o: src/robotface.cpp inc/robotface.h inc/command.h inc/lacze_do_gnuplota.hh\
+	    inc/Wektor2D.hh robotfaceInterface.h
 	g++ ${CPPFLAGS} -c -o obj/robotface.o src/robotface.cpp
 
 clean:

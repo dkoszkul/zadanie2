@@ -31,6 +31,7 @@ XMLParser4Scene::XMLParser4Scene(Scene &Scn)
 void XMLParser4Scene::startDocument()
 {
   cout << "*** Rozpoczecie przetwarzania dokumentu XML." << endl;
+  cout<<"Przetwarzam: ";
 }
 
 
@@ -40,8 +41,7 @@ void XMLParser4Scene::startDocument()
  */
 void XMLParser4Scene::endDocument()
 {
-std::cerr<< "*** Koniec przetwarzania dokumentu XML." << endl;
-std::cerr<<"Wielkosc mapy polecen = "<<_pScn->get_mapaPolecen().size()<<std::endl;
+std::cerr<<endl<< "*** Koniec przetwarzania dokumentu XML." << endl;
 }
 
 
@@ -59,6 +59,7 @@ void XMLParser4Scene::WhenStartElement( const std::string       &ElemName,
 		                      const xercesc::Attributes   &Attrs
                                     )
 {
+std::cout<<"*";
 if(ElemName == "Parameter"){
 std::string name=XMLString::transcode(Attrs.getValue(1));
 _pScn->addParameterToString(name);

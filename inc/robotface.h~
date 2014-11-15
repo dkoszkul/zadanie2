@@ -5,9 +5,11 @@
 #include <map>
 #include <vector>
 #include <fstream>
-#include <string>
+#include <sstream>
 #include "lacze_do_gnuplota.hh"
 #include "Wektor2D.hh"
+
+#include "robotfaceInterface.h"
 
 
 #define NEUTRALNE_POLOZENIE_KACIKOW_UST 20
@@ -16,7 +18,7 @@
 
 using namespace std;
 
-class RobotFace {
+class RobotFace{
 
 private:
 	PzG::LaczeDoGNUPlota Lacze;
@@ -30,7 +32,6 @@ std::vector<Wektor2D> GornaPowieka;
 std::vector<Wektor2D> DolnaPowieka;
 
 public:
-	RobotFace();
 	PzG::LaczeDoGNUPlota getLacze();
 	
 

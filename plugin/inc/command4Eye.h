@@ -7,6 +7,7 @@
 #endif
 
 #include "command.h"
+#include "robotfaceInterface.h"
 
 class Command4Eye: public Command {
 	

@@ -3,7 +3,7 @@
 int main (int argc, char* args[]) 
 {
 	Scene  Scn;
-	
+	RobotFace robotFace;
   	Set4LibInterfaces  LibsSet;
 
   if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
@@ -17,6 +17,6 @@ displayMenu_CaseD(LibsSet);
 displayMenu_CaseU(LibsSet);
 */
 
-displayMenu_CaseW(Scn);
+displayMenu_CaseW(Scn,robotFace);
 return 0;
 }

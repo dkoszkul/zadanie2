@@ -3,7 +3,7 @@
 int main (int argc, char* args[]) 
 {
 	Scene  Scn;
-	PzG::LaczeDoGNUPlota Lacze;
+	RobotFace robotFace;
   	Set4LibInterfaces  LibsSet;
 
   if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;

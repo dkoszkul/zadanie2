@@ -30,7 +30,7 @@ class LibInterface {
 			_pFun_pPrintSyntax(NULL), pFun(NULL) {}
     ~LibInterface() { if (_pLibHandle) dlclose(_pLibHandle); }
     bool Init4Lib(const char* sLibName);
-    void Detach() { _pLibHandle = NULL; }
+    void Detach() { _pLibHandle = NULL; _pFun_GetCmdName=NULL; _pFun_pCreateCmd=NULL;_pFun_pPrintSyntax=NULL;pFun=NULL;}
     const char*  GetCmdName() const { return _pFun_GetCmdName(); }
     Command*  CreateCmd() const { return _pFun_pCreateCmd(); }
     void  PrintSyntax() const { return _pFun_pPrintSyntax(); }

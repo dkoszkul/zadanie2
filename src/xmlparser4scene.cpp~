@@ -40,8 +40,7 @@ void XMLParser4Scene::startDocument()
  */
 void XMLParser4Scene::endDocument()
 {
-std::cerr<< "*** Koniec przetwarzania dokumentu XML." << endl;
-std::cerr<<"Wielkosc mapy polecen = "<<_pScn->get_mapaPolecen().size()<<std::endl;
+std::cerr<<endl<< "*** Koniec przetwarzania dokumentu XML." << endl;
 }
 
 
@@ -59,11 +58,10 @@ void XMLParser4Scene::WhenStartElement( const std::string       &ElemName,
 		                      const xercesc::Attributes   &Attrs
                                     )
 {
+std::cout<<"*";
 if(ElemName == "Parameter"){
 std::string name=XMLString::transcode(Attrs.getValue(1));
-std::cerr<<name<<std::endl;
 _pScn->addParameterToString(name);
-_pScn->showStringParameters();
 }
 	if(ElemName =="Object"){
 		XMLSize_t zero =0;
@@ -158,7 +156,6 @@ void XMLParser4Scene::WhenEndElement(const std::string& ElemName)
 std::istringstream ss(_pScn->Strm_CmdsList);
 _pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->ReadParams(ss);
 		_pScn->setNumerPolecenia(_pScn->getNumerPolecenia()+1);
-		std::cerr<<"Numer polecenia: "<<_pScn->getNumerPolecenia()<<std::endl;
 	}
 }
 
