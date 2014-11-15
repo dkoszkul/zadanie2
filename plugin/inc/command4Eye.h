@@ -37,10 +37,10 @@ private:
 	void setPolozenieDolnejPowieki(double polozenieDolnejPowieki);
 	double getPolozenieGornejPowieki() const;
 	void setPolozenieGornejPowieki(double polozenieGornejPowieki);
-	int getSzybkoscZmiany() const;
+	virtual int getSzybkoscZmiany() const;
 	void setSzybkoscZmiany(double szybkoscZmiany);
 	virtual std::string getFilename();
-
+	virtual std::string getCommandName(){return "Oko";};
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
  };

@@ -44,7 +44,7 @@ obj/scene.o: src/scene.cpp inc/scene.hh inc/command.h inc/libinterface.hh\
 	g++ ${CPPFLAGS} -c -o obj/scene.o src/scene.cpp
 
 obj/robotface.o: src/robotface.cpp inc/robotface.h inc/command.h inc/lacze_do_gnuplota.hh\
-	    inc/Wektor2D.hh robotfaceInterface.h
+	    inc/Wektor2D.hh inc/robotfaceInterface.h
 	g++ ${CPPFLAGS} -c -o obj/robotface.o src/robotface.cpp
 
 clean:

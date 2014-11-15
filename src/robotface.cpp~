@@ -8,6 +8,11 @@ PzG::LaczeDoGNUPlota RobotFace:: getLacze(){
 /////////////////USTA//////////////////////
 
 void RobotFace::Usta_zbudujPolecenieDlaGnuplota(double polozenieDolnejWargi,double polozenieGornejWargi,double oddalenieKacikowUst){
+	
+	if(!GornaWarga.empty()){
+		poprzedniaGornaWarga = GornaWarga;
+		poprzedniaDolnaWarga = DolnaWarga;
+	}
 
 	GornaWarga = { {-NEUTRALNE_POLOZENIE_KACIKOW_UST-oddalenieKacikowUst,0}
 		, {	0,polozenieGornejWargi}, {NEUTRALNE_POLOZENIE_KACIKOW_UST+oddalenieKacikowUst,0}};
@@ -44,6 +49,13 @@ bool RobotFace::Usta_zapisz(int szybkoscZmian){
 //////////////////////////OKO///////////////////////////
 
 void RobotFace::Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki){
+	
+		if(!GornaPowieka.empty()){
+		poprzedniaGornaPowieka = GornaPowieka;
+		poprzedniaDolnaPowieka = DolnaPowieka;
+	}
+
+
 
 	GornaPowieka = { {-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK+7,polozenieGornejPowieki}
@@ -72,7 +84,7 @@ bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
 		GP = *Iter;
 		GP.y += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK + translacja_Y;
 		GP.x += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK
-				+ translacja_X * getIdOka();
+				+ translacja_X * idOka;
 		StrmWy << GP << std::endl;
 	}
 	Wektor2D DP;
@@ -80,7 +92,7 @@ bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
 		DP = *Iter;
 		DP.y += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK + translacja_Y;
 		DP.x += -1.1 * NEUTRALNE_POLOZENIE_KACIKOW_POWIEK
-				+ translacja_X * getIdOka();
+				+ translacja_X * idOka;
 		StrmWy << DP << std::endl;
 	}
 	return !StrmWy.fail();
