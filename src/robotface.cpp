@@ -140,35 +140,34 @@ double roznicaDolnejPowieki = 0;
 int iloscRuchow = 0;
 double aktualnePolozenieGornejPowieki = 0;
 double aktualnePolozenieDolnejPowieki = 0;
+
+Oko_zbudujPolecenieDlaGnuplota(aktualnePolozenieDolnejPowieki,aktualnePolozenieGornejPowieki,idOka); 
 /*!
  * mikroruch dla gornej powieki
  */
 if(idOka == 0 ) {
-std::cout<<"poprzedniePGP: "<<this->_PpolozenieGornejPowieki0<<" aktualne: "<<polozenieGornejPowieki<<std::endl;
-roznicaGornejPowieki = (polozenieGornejPowieki - this->_PpolozenieGornejPowieki0) / (szybkoscZmiany+1);
+roznicaGornejPowieki = (polozenieGornejPowieki - this->_PpolozenieGornejPowieki0) /  (10*(szybkoscZmiany/100)+1);
 
 /*!
  * mikroruch dla dolnej powieki
  */
-roznicaDolnejPowieki = (polozenieDolnejPowieki - this->_PpolozenieDolnejPowieki0) / (szybkoscZmiany+1);
+roznicaDolnejPowieki = (polozenieDolnejPowieki - this->_PpolozenieDolnejPowieki0) /  (10*(szybkoscZmiany/100)+1);
 	
-iloscRuchow = abs((int)(polozenieGornejPowieki - this->_PpolozenieGornejPowieki0)) /abs(roznicaGornejPowieki);
-std::cout<<"Jestem w symulacji!sss"<<roznicaGornejPowieki<<" "<<roznicaDolnejPowieki <<" "<<iloscRuchow<<std::endl;
+iloscRuchow = 10*(szybkoscZmiany/100)+1;//abs((int)(polozenieGornejPowieki - this->_PpolozenieGornejPowieki0)) /abs(roznicaGornejPowieki);
 aktualnePolozenieGornejPowieki = this->_PpolozenieGornejPowieki0;
 aktualnePolozenieDolnejPowieki = this->_PpolozenieDolnejPowieki0;
 }
 
 else if(idOka == 1 ) {
-std::cout<<"poprzedniePGP: "<<this->_PpolozenieGornejPowieki1<<" aktualne: "<<polozenieGornejPowieki<<std::endl;
-roznicaGornejPowieki = (polozenieGornejPowieki - this->_PpolozenieGornejPowieki1) / (szybkoscZmiany+1);
+
+roznicaGornejPowieki = (polozenieGornejPowieki - this->_PpolozenieGornejPowieki1) / (10*(szybkoscZmiany/100)+1);
 
 /*!
  * mikroruch dla dolnej powieki
  */
-roznicaDolnejPowieki = (polozenieDolnejPowieki - this->_PpolozenieDolnejPowieki1) / (szybkoscZmiany+1);
+roznicaDolnejPowieki = (polozenieDolnejPowieki - this->_PpolozenieDolnejPowieki1) / (10*(szybkoscZmiany/100)+1);
 	
-iloscRuchow = abs((int)(polozenieGornejPowieki - this->_PpolozenieGornejPowieki1)) /abs(roznicaGornejPowieki);
-std::cout<<"Jestem w symulacji!sss"<<roznicaGornejPowieki<<" "<<roznicaDolnejPowieki <<" "<<iloscRuchow<<std::endl;
+iloscRuchow = (10*(szybkoscZmiany/100)+1);//abs((int)(polozenieGornejPowieki - this->_PpolozenieGornejPowieki1)) /abs(roznicaGornejPowieki);
  aktualnePolozenieGornejPowieki = this->_PpolozenieGornejPowieki1;
  aktualnePolozenieDolnejPowieki = this->_PpolozenieDolnejPowieki1;
 }
@@ -177,13 +176,12 @@ std::cout<<filename.c_str()<<std::endl;
 for(int i=0;i<iloscRuchow;i++){
 	aktualnePolozenieGornejPowieki+=roznicaGornejPowieki;
 	aktualnePolozenieDolnejPowieki+=roznicaDolnejPowieki;
-
 	Oko_zbudujPolecenieDlaGnuplota(aktualnePolozenieDolnejPowieki,aktualnePolozenieGornejPowieki,idOka); 
 
 	Oko_zapisz(idOka,0);
-	//getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
-	//getLacze().Rysuj();
-	// usleep(10 * 1000);
+	getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
+	getLacze().Rysuj();
+	 usleep(50 * 1000);
 }
 }
 
