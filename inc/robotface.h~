@@ -62,7 +62,7 @@ public:
 
 ////////////OKO///////////////////
 	bool Oko_zapisz(int idOka,int szybkoscZmian);
-	void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki); 
+	void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki,int idOka); 
 	const char* Oko_getFilename();
 	void Oko_simulateMovement(double polozenieDolnejPowieki,double polozenieGornejPowieki,
 			int szybkoscZmiany,int idOka,std::string filename);		

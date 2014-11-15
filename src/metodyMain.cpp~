@@ -152,21 +152,6 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
 			string filename = "dat/"+x.second->getFilename();
-			
-			std::string nazwa = Scn._mapaPolecen[x.first]->getCommandName();
-			if(nazwa == "Oko"){
-				robotFace.Oko_simulateMovement();
-			}
-			else if(nazwa == "Usta"){
-				robotFace.Usta_simulateMovement();
-			}
-			else if(nazwa == "Brew"){
-				robotFace.Brew_simulateMovement(1,nazwa);
-			}
-			else{
-				std::cerr<<"Polecenie "<<nazwa<<" nie jest obslugiwane w symulacji ruchu"<<std::endl;
-			}
-
 			robotFace.getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
 			Scn.refreshActualMap(filename,x.second);
   		}

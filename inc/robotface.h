@@ -44,6 +44,13 @@ std::vector<Wektor2D> GornaPowieka1;
 std::vector<Wektor2D> DolnaPowieka1;
 
 public:
+	RobotFace(){
+		Lacze.Inicjalizuj();  // Tutaj startuje gnuplot.
+		Lacze.ZmienTrybRys(PzG::TR_2D);
+		Lacze.UstawZakresY(-100, 100);
+		Lacze.UstawZakresX(-100, 100);
+}
+
 	PzG::LaczeDoGNUPlota getLacze();
 
 /////////////USTA/////////////////

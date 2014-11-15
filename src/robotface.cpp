@@ -60,7 +60,7 @@ _PpolozenieGornejPowieki0 = GornaPowieka0[1].y;
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK+7,polozenieDolnejPowieki}
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}};
 }
-if(idOka == 1 ) {
+else if(idOka == 1 ) {
 if(!DolnaPowieka1.empty()){
 _PpolozenieDolnejPowieki1 = DolnaPowieka1[1].y;
 _PpolozenieGornejPowieki1 = GornaPowieka1[1].y;
@@ -181,9 +181,9 @@ for(int i=0;i<iloscRuchow;i++){
 	Oko_zbudujPolecenieDlaGnuplota(aktualnePolozenieDolnejPowieki,aktualnePolozenieGornejPowieki,idOka); 
 
 	Oko_zapisz(idOka,0);
-	getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
-	getLacze().Rysuj();
-	 usleep(3000 * 1000);
+	//getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
+	//getLacze().Rysuj();
+	// usleep(10 * 1000);
 }
 }
 
