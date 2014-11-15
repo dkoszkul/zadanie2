@@ -55,7 +55,7 @@ void RobotFace::Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,dou
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK+7,polozenieDolnejPowieki}
 		, {	-NEUTRALNE_POLOZENIE_KACIKOW_POWIEK,0}};
 }
-
+   
 bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
 	std::stringstream ss;
 	double translacja_Y = -10;

@@ -147,11 +147,11 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
-		Lacze.DodajNazwePliku(nazwaPliku.c_str(), PzG::RR_Ciagly, 6);
-		robotFace.getLacze().Rysuj();
+	
   		}
 
-		
+			robotFace.getLacze().DodajNazwePliku("dat/Usta.dat", PzG::RR_Ciagly, 6);
+		robotFace.getLacze().Rysuj();
 
 	}
 	

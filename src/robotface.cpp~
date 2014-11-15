@@ -57,9 +57,10 @@ void RobotFace::Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,dou
 }
 
 bool RobotFace::Oko_zapisz(int idOka,int szybkoscZmian){
-std::stringstream ss;
-ss<<"dat/Oko"<<idOka<<".dat";
+	std::stringstream ss;
 	double translacja_Y = -10;
+	
+	ss<<"dat/Oko"<<idOka<<".dat";
 	std::ofstream StrmWy(ss.str());
 
 	if (!StrmWy.is_open())
