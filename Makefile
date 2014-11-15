@@ -7,10 +7,10 @@ obj:
 CPPFLAGS=-Wall -g -std=c++11 -pedantic -Iinc
 LDFLAGS=-Wall
 
-interp4face:  obj/libinterface.o obj/main.o obj/set4libinterfaces.o obj/scene.o\
+interp4face:  obj/libinterface.o obj/main.o obj/set4libinterfaces.o obj/scene.o  obj/robotface.o\
 	      obj/lacze_do_gnuplota.o obj/Wektor2D.o obj/xmlparser4scene.o obj/metodyMain.o
 	g++ ${LDFLAGS} -o interp4face   obj/libinterface.o obj/xmlparser4scene.o obj/scene.o\
-			  obj/lacze_do_gnuplota.o obj/Wektor2D.o obj/metodyMain.o\
+			  obj/lacze_do_gnuplota.o obj/Wektor2D.o obj/metodyMain.o  obj/robotface.o\
                           obj/set4libinterfaces.o obj/main.o -ldl -lxerces-c
 
 obj/libinterface.o: src/libinterface.cpp inc/libinterface.hh inc/command.h
@@ -39,6 +39,10 @@ obj/metodyMain.o: src/metodyMain.cpp inc/metodyMain.h inc/libinterface.hh inc/se
 obj/scene.o: src/scene.cpp inc/scene.hh inc/command.h inc/libinterface.hh\
 	    inc/set4libinterfaces.hh
 	g++ ${CPPFLAGS} -c -o obj/scene.o src/scene.cpp
+
+obj/robotface.o: src/robotface.cpp inc/robotface.h inc/command.h inc/lacze_do_gnuplota.hh\
+	    inc/Wektor2D.hh
+	g++ ${CPPFLAGS} -c -o obj/robotface.o src/robotface.cpp
 
 clean:
 	rm -f obj/* interp4face core*

@@ -6,10 +6,10 @@ int main (int argc, char* args[])
 	PzG::LaczeDoGNUPlota Lacze;
   	Set4LibInterfaces  LibsSet;
 
-  //if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
+  if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
   if (!LibsSet.AddLib("libPolecenie_Usta.so")) return 1;
   listing(LibsSet);
-AddLibSet(LibsSet);
+Scn.AddLibSet(LibsSet);
 /*
 	displayMenu();
 displayMenu_CaseI(LibsSet);

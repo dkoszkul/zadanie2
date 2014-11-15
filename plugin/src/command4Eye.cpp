@@ -47,9 +47,8 @@ void Command4Eye::PrintCmd() const
  */
 int Command4Eye::ExecCmd(RobotFace &RobPose) const
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  RobPose.Oko_zbudujPolecenieDlaGnuplota(getPolozenieDolnejPowieki(),getPolozenieGornejPowieki());
+  RobPose.Oko_zapisz(getIdOka(),getSzybkoscZmiany());
   return 0;
 }
 
@@ -63,6 +62,7 @@ bool Command4Eye::ReadParams(std::istream& Strm_CmdsList)
 	Strm_CmdsList>>polozenieDolnejPowieki;
 	Strm_CmdsList>>polozenieGornejPowieki;
 	Strm_CmdsList>>szybkoscZmiany;
+
   return true;
 }
 /*!

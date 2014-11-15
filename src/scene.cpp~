@@ -7,9 +7,14 @@ bool Scene::AddCommand(int key, Command *command){
 	return (_mapaPolecen.emplace(key,command)).second;
 }
 
-bool Scene::findCommand(const char* name){
+Command* Scene::findCommand(const char* name){
+std::cout<<"Nazwa po wejsciu w findCommand: "<<name<<std::endl;
+std::cout<<"L: "<<_LibsSet->size()<<std::endl;
 const LibInterface *pInterf  = _LibsSet->FindLib4Cmd(name);
 	if(pInterf == nullptr){
 		cerr<<"Nie ma takiej wtyczki! Wybierz jedna z dostepnych opcji! "<<endl;
-	}
+		return nullptr;
+	} else{
+		return pInterf->CreateCmd();
+	}		
 }

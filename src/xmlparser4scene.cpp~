@@ -40,7 +40,8 @@ void XMLParser4Scene::startDocument()
  */
 void XMLParser4Scene::endDocument()
 {
-  cout << "=== Koniec przetwarzania dokumentu XML." << endl;
+std::cerr<< "*** Koniec przetwarzania dokumentu XML." << endl;
+std::cerr<<"Wielkosc mapy polecen = "<<_pScn->get_mapaPolecen().size()<<std::endl;
 }
 
 
@@ -59,20 +60,19 @@ void XMLParser4Scene::WhenStartElement( const std::string       &ElemName,
                                     )
 {
 if(ElemName == "Parameter"){
-cout<<"To na pewno jest parametr!"<<endl;
-std::cerr<<Attrs.getLength()<<" : dlugosc"<<std::endl;
-for (XMLSize_t i = 0; i < Attrs.getLength(); i++) {
-  std::string name =XMLString::transcode(Attrs.getValue(i));
-std::cout<<name<<std::endl;
+std::string name=XMLString::transcode(Attrs.getValue(1));
+std::cerr<<name<<std::endl;
+_pScn->addParameterToString(name);
+_pScn->showStringParameters();
 }
-}
-  
 	if(ElemName =="Object"){
-XMLSize_t zero =0;
+		XMLSize_t zero =0;
 		std::string name =XMLString::transcode(Attrs.getValue(zero));
-std::cout<<"!!!!!!!!!!!!!!!!!!!! <<< >>> "<<name<<std::endl;
-if(_pScn->findCommand(ElemName)) {std::cout<<"znalazlem opcje!"<<std::endl;}
-		//_pScn->AddCommand(_pScn->getNumerPolecenia(), _pScn->findCommand(ElemName.c_str()));
+		if(_pScn->findCommand(name.c_str()) != nullptr) {
+			_pScn->AddCommand(_pScn->getNumerPolecenia(), _pScn->findCommand(name.c_str()));
+			_pScn->resetStrm_CmdsList();
+		}
+		
 	}
 
 }
@@ -104,7 +104,6 @@ void XMLParser4Scene::startElement(  const   XMLCh* const    pURI,
                                     )
 {
   char* sElemName = xercesc::XMLString::transcode(pLocalName);
-  cout << "+++ Poczatek elementu: "<< sElemName << endl;
 
   WhenStartElement(sElemName, Attrs);
 
@@ -137,7 +136,6 @@ void XMLParser4Scene::endElement(  const   XMLCh* const    pURI,
                                   )
 {
    char* sElemName = xercesc::XMLString::transcode(pLocalName);
-   cout << "--- Koniec elementu: "<< sElemName << endl;
 
    WhenEndElement(sElemName);
 
@@ -156,8 +154,12 @@ void XMLParser4Scene::endElement(  const   XMLCh* const    pURI,
  */
 void XMLParser4Scene::WhenEndElement(const std::string& ElemName)
 {
-  cout << "       ---> Tu na koniec moge wykonac jakies dzialanie (o ile jest potrzebne)"
-       << endl << endl;
+	if(ElemName == "Object"){
+std::istringstream ss(_pScn->Strm_CmdsList);
+_pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->ReadParams(ss);
+		_pScn->setNumerPolecenia(_pScn->getNumerPolecenia()+1);
+		std::cerr<<"Numer polecenia: "<<_pScn->getNumerPolecenia()<<std::endl;
+	}
 }
 
 

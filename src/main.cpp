@@ -3,10 +3,10 @@
 int main (int argc, char* args[]) 
 {
 	Scene  Scn;
-	PzG::LaczeDoGNUPlota Lacze;
+	
   	Set4LibInterfaces  LibsSet;
 
-  //if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
+  if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
   if (!LibsSet.AddLib("libPolecenie_Usta.so")) return 1;
   listing(LibsSet);
 Scn.AddLibSet(LibsSet);

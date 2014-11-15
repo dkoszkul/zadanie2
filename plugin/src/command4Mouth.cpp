@@ -49,9 +49,9 @@ void Command4Mouth::PrintCmd() const
 
 int Command4Mouth::ExecCmd(RobotFace &RobPose) const
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
+  RobPose.Usta_zapisz(getSzybkoscZmiany());
+
   return 0;
 }
 
