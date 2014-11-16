@@ -44,12 +44,22 @@ std::vector<Wektor2D> DolnaPowieka0;
 std::vector<Wektor2D> GornaPowieka1;
 std::vector<Wektor2D> DolnaPowieka1;
 
+////////////BREW///////////////////
+double _PpolozenieBrwi0;
+double _PpolozenieKatNachylenia0;
+double _PpolozenieBrwi1;
+double _PpolozenieKatNachylenia1;
+
+std::vector<Wektor2D> Brew0;
+std::vector<Wektor2D> Brew1;
+
+
 public:
 	RobotFace(){
 		Lacze.Inicjalizuj();  // Tutaj startuje gnuplot.
 		Lacze.ZmienTrybRys(PzG::TR_2D);
-		Lacze.UstawZakresY(-100, 100);
-		Lacze.UstawZakresX(-100, 100);
+		Lacze.UstawZakresY(-130, 130);
+		Lacze.UstawZakresX(-130, 130);
 }
 
 	PzG::LaczeDoGNUPlota getLacze();
@@ -78,9 +88,8 @@ public:
 	std::vector<Wektor2D> getGornaPowieka(){return GornaPowieka0;};
 	std::vector<Wektor2D> getDolnaPowieka(){return DolnaPowieka0;};
 ////////////BREW//////////////////
-	void zapiszBrew(int idOka,int szybkoscZmian);
-	void Brew_zbudujPolecenieDlaGnuplota(double polozenieBrwi,double polozenieKatNachylenia,
-					int szybkoscZmiany,int idBrwi); 
+	bool Brew_zapisz(int idOka,int szybkoscZmian);
+	void Brew_zbudujPolecenieDlaGnuplota(double polozenieBrwi,double polozenieKatNachylenia,int idBrwi); 
 	void Brew_simulateMovement(double polozenieBrwi,double polozenieKatNachylenia,int szybkoscZmiany,
 					int idBrwi,std::string filename);
 
