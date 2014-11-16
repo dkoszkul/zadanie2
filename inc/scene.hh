@@ -56,7 +56,9 @@ public:
 	void resetStrm_CmdsList(){Strm_CmdsList="";};
 	void addParameterToString(string parameterName){Strm_CmdsList+=parameterName;Strm_CmdsList+=" ";};
 	void showStringParameters(){std::cout<< Strm_CmdsList<<std::endl;};
-
+	void clearMapaPolecen(){
+		_mapaPolecen.clear();
+	}
 
 };
 

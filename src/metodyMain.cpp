@@ -136,9 +136,9 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 	string nazwaPlikuXML;
 	robotFace.getLacze().UsunWszystkieNazwyPlikow();
 
-	cout<<"Podaj nazwe pliku XML: ";
+	cout<<"Podaj nazwe pliku XML: "<<endl;
 	cin>>nazwaPlikuXML;
-
+	Scn.clearMapaPolecen();
 	 if (!ReadFile(nazwaPlikuXML.c_str(),Scn)){
 		cerr<<"Wczytanie nie powiodlo sie! "<<endl;
 	}else{
@@ -147,8 +147,22 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
   		}
-
 	}
-	
+}
 
+void displayMenu_CaseS(Scene  &Scn,RobotFace &robotFace){
+
+if(Scn.get_mapaPolecen().size() !=0){
+for (auto& x: Scn.get_mapaPolecen()) {
+    			x.second->ExecCmd(robotFace);
+  		}
+} else {
+std::cerr<<"Blad: Nie wczytano jeszcze polecen. Uzyj najpierw opcji 'w'"<<std::endl;
+}
+}
+
+void displayMenu_CaseP(Scene  &Scn){
+		for (auto& x: Scn.get_mapaPolecen()) {
+    			x.second->PrintCmd();
+  		}
 }

@@ -129,8 +129,6 @@ iloscRuchow = (10*(szybkoscZmiany/100)+1);//abs((int)(polozenieGornejPowieki - t
  aktualnePolozenieGornejPowieki = this->_PpolozenieGornejPowieki1;
  aktualnePolozenieDolnejPowieki = this->_PpolozenieDolnejPowieki1;
 }
-
-std::cout<<filename.c_str()<<std::endl;
 for(int i=0;i<iloscRuchow;i++){
 	aktualnePolozenieGornejPowieki+=roznicaGornejPowieki;
 	aktualnePolozenieDolnejPowieki+=roznicaDolnejPowieki;

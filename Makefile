@@ -1,5 +1,5 @@
 __start__: obj __plugin__ interp4face
-	 ./interp4face
+	 rlwrap -pyellow -w 200 -S'Twoj wybor (? - menu): ' ./interp4face
 
 obj:
 	mkdir obj

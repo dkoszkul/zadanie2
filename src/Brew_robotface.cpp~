@@ -60,7 +60,6 @@ if(idBrwi ==1) {
 	
 		Brew1 = { {-NEUTRALNE_POLOZENIE_BRWI,polozenieBrwi}
 			, {-NEUTRALNE_POLOZENIE_BRWI+DLUGOSC_BRWI,polozenieBrwi+(DLUGOSC_BRWI*polozenieKatNachylenia/100)}};
-	
 }
 }
 

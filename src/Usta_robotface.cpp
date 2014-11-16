@@ -75,8 +75,6 @@ aktualnePolozenieGornejWargi = this->_PpolozenieGornejWargi;
 aktualnePolozenieDolnejWargi = this->_PpolozenieDolnejWargi;
 aktualneOddalenieKacikowUst = this->_PoddalenieKacikowUst;
 
-
-std::cout<<filename.c_str()<<std::endl;
 for(int i=0;i<iloscRuchow;i++){
 	aktualnePolozenieGornejWargi+=roznicaGornejWargi;
 	aktualnePolozenieDolnejWargi+=roznicaDolnejWargi;

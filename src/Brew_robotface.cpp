@@ -103,8 +103,6 @@ iloscRuchow = 10*(szybkoscZmiany/100)+1;//abs((int)(polozenieGornejPowieki - thi
 aktualnePolozeniaBrwi = this->_PpolozenieBrwi1;
 aktualnePolozeniaKatNachylenia = this->_PpolozenieKatNachylenia1;
 }
-
-std::cout<<filename.c_str()<<std::endl;
 for(int i=0;i<iloscRuchow;i++){
 	aktualnePolozeniaBrwi+=roznicaPolozeniaBrwi;
 	aktualnePolozeniaKatNachylenia+=roznicaPolozeniaKatNachylenia;

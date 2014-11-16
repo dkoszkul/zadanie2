@@ -10,7 +10,7 @@ bool Scene::AddCommand(int key, Command *command){
 Command* Scene::findCommand(const char* name){
 const LibInterface *pInterf  = _LibsSet->FindLib4Cmd(name);
 	if(pInterf == nullptr){
-		cerr<<"Nie ma takiej wtyczki! Wybierz jedna z dostepnych opcji! "<<endl;
+		cerr<<endl<<"Brak wtyczki "<<name<<". Doinstaluj ja lub zmien plik konfiguracyjny."<<endl;
 		return nullptr;
 	} else{
 		return pInterf->CreateCmd();

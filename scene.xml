@@ -74,8 +74,8 @@
  </Object>
  <Object Name="Brew">
   <Parameter Name="id" Value="1"/>
-  <Parameter Name="polozenie_brwi" Value="20"/>
-  <Parameter Name="polozenie_kat_nachylenia" Value="80"/>
+  <Parameter Name="polozenie_brwi" Value="35"/>
+  <Parameter Name="polozenie_kat_nachylenia" Value="-80"/>
   <Parameter Name="szybkosc_zmian" Value="100"/>
  </Object>
  <Object Name="Oko">

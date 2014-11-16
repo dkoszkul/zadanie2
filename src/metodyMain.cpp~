@@ -138,7 +138,7 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 
 	cout<<"Podaj nazwe pliku XML: ";
 	cin>>nazwaPlikuXML;
-
+	Scn.clearMapaPolecen();
 	 if (!ReadFile(nazwaPlikuXML.c_str(),Scn)){
 		cerr<<"Wczytanie nie powiodlo sie! "<<endl;
 	}else{
@@ -146,13 +146,23 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
-			string filename = "dat/"+x.second->getFilename();
-			//robotFace.getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
-			Scn.refreshActualMap(filename,x.second);
   		}
-		//robotFace.getLacze().Rysuj();
-
 	}
-	
+}
 
+void displayMenu_CaseS(Scene  &Scn,RobotFace &robotFace){
+
+if(Scn.get_mapaPolecen().size() !=0){
+for (auto& x: Scn.get_mapaPolecen()) {
+    			x.second->ExecCmd(robotFace);
+  		}
+} else {
+std::cerr<<"Blad: Nie wczytano jeszcze polecen. Uzyj najpierw opcji 'w'"<<std::endl;
+}
+}
+
+void displayMenu_CaseP(Scene  &Scn){
+		for (auto& x: Scn.get_mapaPolecen()) {
+    			x.second->PrintCmd();
+  		}
 }

@@ -28,3 +28,5 @@ void displayMenu_CaseI(Set4LibInterfaces  &LibsSet);
 void displayMenu_CaseD(Set4LibInterfaces  &LibsSet);
 void displayMenu_CaseU(Set4LibInterfaces  &LibsSet);
 void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace);
+void displayMenu_CaseP(Scene  &Scn);
+void displayMenu_CaseS(Scene  &Scn,RobotFace &robotFace);

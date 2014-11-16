@@ -16,7 +16,7 @@ using namespace std;
 /*!
  * Konstruktor klasy. Tutaj należy zainicjalizować wszystkie
  * dodatkowe pola.
- * (Ten opis należy odpowiednio uzupełnić)
+ *
  */
 XMLParser4Scene::XMLParser4Scene(Scene &Scn)
 {
@@ -217,10 +217,6 @@ void XMLParser4Scene::error(const xercesc::SAXParseException&  Exception)
  */
 void XMLParser4Scene::warning(const xercesc::SAXParseException&  Exception)  
 {
-  cerr << "Ostrzezenie ..." << endl;
+  cerr << "Ostrzezenie: Sprawdz poprawnosc pliku konfiguracyjnego. Blad nie jest krytyczny." << endl;
 
-  /*
-   * Tutaj należy wstawić odpowiedni kod. Tekst wyświetlany powyżej
-   * jest tylko "atrapą".
-   */
 }

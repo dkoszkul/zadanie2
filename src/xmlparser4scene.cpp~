@@ -156,7 +156,6 @@ void XMLParser4Scene::WhenEndElement(const std::string& ElemName)
 	if(ElemName == "Object"){
 std::istringstream ss(_pScn->Strm_CmdsList);
 _pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->ReadParams(ss);
-std::cerr<<"Polecenie: "<<_pScn->_mapaPolecen.at(_pScn->getNumerPolecenia())->getFilename();
 		_pScn->setNumerPolecenia(_pScn->getNumerPolecenia()+1);
 
 	}
@@ -218,10 +217,6 @@ void XMLParser4Scene::error(const xercesc::SAXParseException&  Exception)
  */
 void XMLParser4Scene::warning(const xercesc::SAXParseException&  Exception)  
 {
-  cerr << "Ostrzezenie ..." << endl;
+  cerr << "Ostrzezenie: Sprawdz poprawnosc pliku konfiguracyjnego. Blad nie jest krytyczny." << endl;
 
-  /*
-   * Tutaj należy wstawić odpowiedni kod. Tekst wyświetlany powyżej
-   * jest tylko "atrapą".
-   */
 }
