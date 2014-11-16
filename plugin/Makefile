@@ -1,4 +1,4 @@
-__start__: obj ../libs/libPolecenie_Oko.so ../libs/libPolecenie_Usta.so
+__start__: obj ../libs/libPolecenie_Oko.so ../libs/libPolecenie_Usta.so ../libs/libPolecenie_Brew.so
 	@echo "  Tworzenie wtyczki zakonczone."
 	@echo
 
@@ -21,6 +21,12 @@ LDFLAGS=-Wall -shared
 	@echo "  Wtyczka dla polecenia 'Usta' zostala utworzona."
 	@echo
 
+../libs/libPolecenie_Brew.so: obj/command4Brow.o
+	g++ ${LDFLAGS} -o ../libs/libPolecenie_Brew.so obj/command4Brow.o
+	@echo
+	@echo "  Wtyczka dla polecenia 'Brew' zostala utworzona."
+	@echo
+
 obj/command4Eye.o: src/command4Eye.cpp ../inc/command.h\
                         inc/command4Eye.h ../inc/robotfaceInterface.h
 	g++ -c ${CPPFLAGS} -o obj/command4Eye.o src/command4Eye.cpp
@@ -28,6 +34,10 @@ obj/command4Eye.o: src/command4Eye.cpp ../inc/command.h\
 obj/command4Mouth.o: src/command4Mouth.cpp ../inc/command.h\
                         inc/command4Mouth.h ../inc/robotfaceInterface.h
 	g++ -c ${CPPFLAGS} -o obj/command4Mouth.o src/command4Mouth.cpp
+
+obj/command4Brow.o: src/command4Brow.cpp ../inc/command.h\
+                        inc/command4Brow.h ../inc/robotfaceInterface.h
+	g++ -c ${CPPFLAGS} -o obj/command4Brow.o src/command4Brow.cpp
 
 clean:
 	rm -f obj/*

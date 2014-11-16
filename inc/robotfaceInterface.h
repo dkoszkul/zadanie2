@@ -7,21 +7,14 @@ public:
 RobotFaceInterface(){};
 virtual ~RobotFaceInterface(){};
 
-virtual void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki,int idOka)=0; 
-virtual bool Oko_zapisz(int idOka,int szybkoscZmian)=0;
 virtual void Oko_simulateMovement(double polozenieDolnejPowieki,double polozenieGornejPowieki,
 			int szybkoscZmiany,int idOka,std::string filename)=0;	
 
-
-virtual bool Usta_zapisz(int szybkoscZmian)=0;
-virtual void Usta_zbudujPolecenieDlaGnuplota(
-		double polozenieDolnejWargi,
-		double polozenieDolnejPowieki,
-		double polozenieGornejPowieki)=0; 
 virtual void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
 					double oddalenieKacikowUst,int szybkoscZmiany,std::string filename)=0;
 
-
+virtual void Brew_simulateMovement(double polozenieBrwi,double polozenieKatNachylenia,int szybkoscZmiany,
+					int idBrwi,std::string filename)=0;
 };
 
 #endif

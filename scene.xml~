@@ -30,4 +30,10 @@
   <Parameter Name="polozenie_gornej_powieki" Value="40"/>
   <Parameter Name="szybkosc_zmian" Value="300"/>
  </Object>
+ <Object Name="Usta">
+  <Parameter Name="polozenie_dolnej_wargi" Value="-40"/>
+  <Parameter Name="polozenie_gornej_wargi" Value="0"/>
+  <Parameter Name="odchylenie_kacikow_ust" Value="30"/>
+  <Parameter Name="szybkosc_zmian" Value="300"/>	 
+ </Object>
 </Scene>

@@ -9,6 +9,7 @@ char Opcja;
 
   if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
   if (!LibsSet.AddLib("libPolecenie_Usta.so")) return 1;
+  if (!LibsSet.AddLib("libPolecenie_Brew.so")) return 1;
   listing(LibsSet);
 Scn.AddLibSet(LibsSet);
 /*

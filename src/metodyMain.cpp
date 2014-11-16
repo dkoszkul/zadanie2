@@ -146,11 +146,7 @@ void displayMenu_CaseW(Scene  &Scn,RobotFace &robotFace){
 
 		for (auto& x: Scn.get_mapaPolecen()) {
     			x.second->ExecCmd(robotFace);
-			string filename = "dat/"+x.second->getFilename();
-			robotFace.getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
-			Scn.refreshActualMap(filename,x.second);
   		}
-		robotFace.getLacze().Rysuj();
 
 	}
 	

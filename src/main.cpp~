@@ -7,7 +7,7 @@ int main (int argc, char* args[])
   	Set4LibInterfaces  LibsSet;
 char Opcja;
 
-  //if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
+  if (!LibsSet.AddLib("libPolecenie_Oko.so")) return 1;
   if (!LibsSet.AddLib("libPolecenie_Usta.so")) return 1;
   listing(LibsSet);
 Scn.AddLibSet(LibsSet);

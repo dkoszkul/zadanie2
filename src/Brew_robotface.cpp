@@ -1,14 +1,5 @@
 #include "robotface.h"
 
-
-PzG::LaczeDoGNUPlota RobotFace:: getLacze(){
-	return Lacze;
-}
-
-
-
-
-
 void RobotFace::Brew_simulateMovement(double polozenieBrwi,double polozenieKatNachylenia,int szybkoscZmiany,
 					int idBrwi,std::string filename){
 }

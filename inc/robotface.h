@@ -73,14 +73,16 @@ public:
 	void Oko_zbudujPolecenieDlaGnuplota(double polozenieDolnejPowieki,double polozenieGornejPowieki,int idOka); 
 	const char* Oko_getFilename();
 	void Oko_simulateMovement(double polozenieDolnejPowieki,double polozenieGornejPowieki,
-			int szybkoscZmiany,int idOka,std::string filename);		
+					int szybkoscZmiany,int idOka,std::string filename);		
 
 	std::vector<Wektor2D> getGornaPowieka(){return GornaPowieka0;};
 	std::vector<Wektor2D> getDolnaPowieka(){return DolnaPowieka0;};
 ////////////BREW//////////////////
-//	void zapiszBrew();
-//	void Brew_zbudujPolecenieDlaGnuplota(); 
-	void Brew_simulateMovement(int nrPolecenia,string nazwaPliku);
+	void zapiszBrew(int idOka,int szybkoscZmian);
+	void Brew_zbudujPolecenieDlaGnuplota(double polozenieBrwi,double polozenieKatNachylenia,
+					int szybkoscZmiany,int idBrwi); 
+	void Brew_simulateMovement(double polozenieBrwi,double polozenieKatNachylenia,int szybkoscZmiany,
+					int idBrwi,std::string filename);
 
 
 
