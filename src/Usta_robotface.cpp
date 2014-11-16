@@ -20,7 +20,7 @@ void RobotFace::Usta_zbudujPolecenieDlaGnuplota(double polozenieDolnejWargi,doub
 
 bool RobotFace::Usta_zapisz(int szybkoscZmian){
 
-	double translacja_Y = -10;
+	double translacja_Y = -30;
 	std::ofstream StrmWy("dat/Usta.dat");
 
 	if (!StrmWy.is_open())
