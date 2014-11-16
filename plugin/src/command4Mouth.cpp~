@@ -49,8 +49,11 @@ void Command4Mouth::PrintCmd() const
 
 int Command4Mouth::ExecCmd(RobotFace &RobPose) const
 {
-  RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
-  RobPose.Usta_zapisz(getSzybkoscZmiany());
+	string filenameT = "dat/"+filename;
+	RobPose.Usta_simulateMovement(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),
+					getOddalenieKacikowUst(),getSzybkoscZmiany(),filenameT);
+  /*RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
+  RobPose.Usta_zapisz(getSzybkoscZmiany());*/
 
   return 0;
 }
@@ -59,8 +62,9 @@ bool Command4Mouth::ReadParams(std::istream& Strm_CmdsList)
 {
   Strm_CmdsList>> polozenieDolnejWargi;
   Strm_CmdsList>> polozenieGornejWargi;
-  Strm_CmdsList>> odchylenieKacikowUst;
+  Strm_CmdsList>> oddalenieKacikowUst;
   Strm_CmdsList>> szybkoscZmiany;
+
   return true;
 }
 
@@ -111,5 +115,9 @@ int Command4Mouth::getSzybkoscZmiany() const {
 
 void Command4Mouth::setSzybkoscZmiany(int szybkoscZmiany) {
 	this->szybkoscZmiany = szybkoscZmiany;
+}
+
+std::string Command4Mouth::getFilename(){
+	return "Usta.dat";
 }
 

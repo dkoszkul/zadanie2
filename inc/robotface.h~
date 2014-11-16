@@ -26,8 +26,9 @@ private:
 	PzG::LaczeDoGNUPlota Lacze;
 
 /////////////USTA/////////////////
-std::vector<Wektor2D> poprzedniaGornaWarga;
-std::vector<Wektor2D> poprzedniaDolnaWarga;
+double _PpolozenieDolnejWargi;
+double _PpolozenieGornejWargi;
+double _PoddalenieKacikowUst;
 
 std::vector<Wektor2D> GornaWarga;
 std::vector<Wektor2D> DolnaWarga;
@@ -44,6 +45,13 @@ std::vector<Wektor2D> GornaPowieka1;
 std::vector<Wektor2D> DolnaPowieka1;
 
 public:
+	RobotFace(){
+		Lacze.Inicjalizuj();  // Tutaj startuje gnuplot.
+		Lacze.ZmienTrybRys(PzG::TR_2D);
+		Lacze.UstawZakresY(-100, 100);
+		Lacze.UstawZakresX(-100, 100);
+}
+
 	PzG::LaczeDoGNUPlota getLacze();
 
 /////////////USTA/////////////////
@@ -53,8 +61,8 @@ public:
 		double polozenieGornejWargi,
 		double oddalenieKacikowUst); 
 	const char* Usta_getFilename();
-	/*void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
-		double oddalenieKacikowUst,double _PoddalenieKacikowUst,int szybkoscZmiany);*/
+	void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
+					double oddalenieKacikowUst,int szybkoscZmiany);
 
 	std::vector<Wektor2D> getGornaWarga(){return GornaWarga;};
 	std::vector<Wektor2D> getDolnaWarga(){return DolnaWarga;};

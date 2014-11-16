@@ -18,6 +18,9 @@ virtual void Usta_zbudujPolecenieDlaGnuplota(
 		double polozenieDolnejWargi,
 		double polozenieDolnejPowieki,
 		double polozenieGornejPowieki)=0; 
+virtual void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
+					double oddalenieKacikowUst,int szybkoscZmiany,std::string filename)=0;
+
 
 };
 

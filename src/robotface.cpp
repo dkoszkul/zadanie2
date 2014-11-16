@@ -9,6 +9,11 @@ PzG::LaczeDoGNUPlota RobotFace:: getLacze(){
 
 void RobotFace::Usta_zbudujPolecenieDlaGnuplota(double polozenieDolnejWargi,double polozenieGornejWargi,double oddalenieKacikowUst){
 
+	if(!GornaWarga.empty()){
+		_PpolozenieDolnejWargi=DolnaWarga[1].y;
+		_PpolozenieGornejWargi=GornaWarga[1].y;
+		_PoddalenieKacikowUst=GornaWarga[2].x - NEUTRALNE_POLOZENIE_KACIKOW_UST;
+	}
 
 	GornaWarga = { {-NEUTRALNE_POLOZENIE_KACIKOW_UST-oddalenieKacikowUst,0}
 		, {	0,polozenieGornejWargi}, {NEUTRALNE_POLOZENIE_KACIKOW_UST+oddalenieKacikowUst,0}};
@@ -185,9 +190,54 @@ for(int i=0;i<iloscRuchow;i++){
 }
 }
 
-/*void RobotFace::Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,double oddalenieKacikowUst,
-			double _PpolozenieDolnejWargi,double _PpolozenieGornejWargi,double _PoddalenieKacikowUst,int szybkoscZmiany){
-}*/
+void RobotFace::Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
+					double oddalenieKacikowUst,int szybkoscZmiany,std::string filename){
+
+double roznicaGornejWargi = 0;
+double roznicaDolnejWargi = 0;
+double roznicaOddaleniaKacikowUst = 0;
+int iloscRuchow = 0;
+double aktualnePolozenieGornejWargi = 0;
+double aktualnePolozenieDolnejWargi = 0;
+double aktualneOddalenieKacikowUst = 0;
+
+Usta_zbudujPolecenieDlaGnuplota(aktualnePolozenieDolnejWargi,aktualnePolozenieGornejWargi,aktualneOddalenieKacikowUst); 
+/*!
+ * mikroruch dla gornej wargi
+ */
+
+roznicaGornejWargi = (polozenieGornejWargi - this->_PpolozenieGornejWargi) /  (10*(szybkoscZmiany/100)+1);
+
+/*!
+ * mikroruch dla dolnej wargi
+ */
+roznicaDolnejWargi = (polozenieDolnejWargi - this->_PpolozenieDolnejWargi) /  (10*(szybkoscZmiany/100)+1);
+	
+/*!
+ * mikroruch dla odchylenia ust
+ */
+roznicaOddaleniaKacikowUst = (oddalenieKacikowUst - this->_PoddalenieKacikowUst) /  (10*(szybkoscZmiany/100)+1);
+
+iloscRuchow = 10*(szybkoscZmiany/100)+1;//abs((int)(polozenieGornejWargi - this->_PpolozenieGornejWargi)) /abs(roznicaGornejWargi);
+aktualnePolozenieGornejWargi = this->_PpolozenieGornejWargi;
+aktualnePolozenieDolnejWargi = this->_PpolozenieDolnejWargi;
+aktualneOddalenieKacikowUst = this->_PoddalenieKacikowUst;
+
+
+std::cout<<filename.c_str()<<std::endl;
+for(int i=0;i<iloscRuchow;i++){
+	aktualnePolozenieGornejWargi+=roznicaGornejWargi;
+	aktualnePolozenieDolnejWargi+=roznicaDolnejWargi;
+	aktualneOddalenieKacikowUst+=roznicaOddaleniaKacikowUst;
+	Usta_zbudujPolecenieDlaGnuplota(aktualnePolozenieDolnejWargi,aktualnePolozenieGornejWargi,aktualneOddalenieKacikowUst); 
+
+	Usta_zapisz(0);
+	getLacze().DodajNazwePliku(filename.c_str(), PzG::RR_Ciagly, 6);
+	getLacze().Rysuj();
+	 usleep(50 * 1000);
+}
+}
+
 
 void RobotFace::Brew_simulateMovement(int nrPolecenia,string nazwaPliku){
 }

@@ -49,8 +49,11 @@ void Command4Mouth::PrintCmd() const
 
 int Command4Mouth::ExecCmd(RobotFace &RobPose) const
 {
-  RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
-  RobPose.Usta_zapisz(getSzybkoscZmiany());
+	string filenameT = "dat/Usta.dat";
+	RobPose.Usta_simulateMovement(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),
+					getOddalenieKacikowUst(),getSzybkoscZmiany(),filenameT);
+  /*RobPose.Usta_zbudujPolecenieDlaGnuplota(getPolozenieDolnejWargi(),getPolozenieGornejWargi(),getOddalenieKacikowUst());
+  RobPose.Usta_zapisz(getSzybkoscZmiany());*/
 
   return 0;
 }

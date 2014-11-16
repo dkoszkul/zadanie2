@@ -26,8 +26,9 @@ private:
 	PzG::LaczeDoGNUPlota Lacze;
 
 /////////////USTA/////////////////
-std::vector<Wektor2D> poprzedniaGornaWarga;
-std::vector<Wektor2D> poprzedniaDolnaWarga;
+double _PpolozenieDolnejWargi;
+double _PpolozenieGornejWargi;
+double _PoddalenieKacikowUst;
 
 std::vector<Wektor2D> GornaWarga;
 std::vector<Wektor2D> DolnaWarga;
@@ -60,8 +61,8 @@ public:
 		double polozenieGornejWargi,
 		double oddalenieKacikowUst); 
 	const char* Usta_getFilename();
-	/*void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
-		double oddalenieKacikowUst,double _PoddalenieKacikowUst,int szybkoscZmiany);*/
+	void Usta_simulateMovement(double polozenieDolnejWargi,double polozenieGornejWargi,
+					double oddalenieKacikowUst,int szybkoscZmiany,std::string filename);
 
 	std::vector<Wektor2D> getGornaWarga(){return GornaWarga;};
 	std::vector<Wektor2D> getDolnaWarga(){return DolnaWarga;};
